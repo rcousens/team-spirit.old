@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    {#<link rel="icon" href="/favicon.ico">#}
+    {% block stylesheets %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+    {% if embed is defined %}
+    <script>
+        window.TS = {
+            embed: JSON.parse('{{ embed|json_encode()|raw }}')
+        };
+    </script>
+    {% endif %}
+</head>
+
+<body id="app">
+{% block body %}
+{% endblock %}
+
+<script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+<script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

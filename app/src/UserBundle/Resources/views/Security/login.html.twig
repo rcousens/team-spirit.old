@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <base href="{{ app.request.requestUri }}">
+    <style>
+        body {
+            padding-top: 70px;
+        }
+    </style>
+{% endblock %}
+{% block javascripts %}
+    {% if app.environment == 'dev' %}
+        <script type="text/javascript" src="/dist/commons.chunk.js"></script>
+        <!-- "app/page/login/login.js" -->
+        <script type="text/javascript" src="/dist/login.entry.chunk.js"></script>
+
+        {#<script type="text/javascript" src="http://localhost:3000/dist/hot.js"></script>#}
+    {% elseif app.environment == 'prod' %}
+        <script type="text/javascript" src="/dist/commons.chunk.js"></script>
+        <!-- "app/page/login/login.js" -->
+        <script type="text/javascript" src="/dist/login.entry.chunk.js"></script>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+- .gitkeep
+- .gitignore
+- /vendor/
+- /node_modules/
+- /app/cache/*
+- /app/logs/*
+- /app/bootstrap.php.cache
+- /app/config/parameters.yml
+- /web/dist/
+- /web/bundles/

@@ -1,0 +1,5 @@
+/build/
+/packer/iso/
+/packer/packer_cache/
+/.vagrant/
+/*.iml

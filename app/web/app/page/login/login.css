@@ -1,0 +1,9 @@
+.page-enter {
+    opacity: 0.01;
+    transition: opacity 0.4s ease-in;
+}
+
+.page-enter.page-enter-active {
+    opacity: 1;
+}
+

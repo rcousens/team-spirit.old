@@ -1,0 +1,64 @@
+{
+  "builders": [
+    {
+      "boot_command": [
+        "<tab> linux ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+      ],
+      "boot_wait": "10s",
+      "disk_size": 40960,
+      "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+      "guest_os_type": "Fedora_64",
+      "headless": "false",
+      "http_directory": "http",
+      "iso_checksum": "a6a2e83bb409d6b8ee3072ad07faac0a54d79c9ecbe3a40af91b773e2d843d8e",
+      "iso_checksum_type": "sha256",
+      "iso_url": "iso/Fedora-Server-DVD-x86_64-21.iso",
+      "output_directory": "team-spirit-f21-x86_64-virtualbox",
+      "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
+      "ssh_password": "vagrant",
+      "ssh_port": 22,
+      "ssh_username": "vagrant",
+      "ssh_wait_timeout": "10000s",
+      "type": "virtualbox-iso",
+      "vboxmanage": [
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--memory",
+          "1024"
+        ],
+        [
+          "modifyvm",
+          "{{.Name}}",
+          "--cpus",
+          "1"
+        ]
+      ],
+      "virtualbox_version_file": ".vbox_version",
+      "vm_name": "team-spirit-f21-x86_64"
+    }
+  ],
+  "post-processors": [
+    {
+      "output": "../build/{{.Provider}}/vagrant/team-spirit-f21-x86_64.box",
+      "type": "vagrant"
+    }
+  ],
+  "provisioners": [
+    {
+      "environment_vars": [
+      ],
+      "execute_command": "echo 'vagrant' | {{.Vars}} sudo -E -S bash '{{.Path}}'",
+      "scripts": [
+        "scripts/sshd.sh",
+        "scripts/vmtools.sh",
+        "scripts/vagrant.sh",
+        "scripts/cleanup.sh",
+        "scripts/minimize.sh"
+      ],
+      "type": "shell"
+    }
+  ],
+  "variables": {
+  }
+}

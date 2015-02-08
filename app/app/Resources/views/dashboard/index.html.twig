@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <base href="{{ app.request.requestUri }}">
+    <style>
+        body {
+            padding-top: 70px;
+        }
+    </style>
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="/dist/commons.chunk.js"></script>
+    <!-- "app/page/dashboard/dashboard.js" -->
+    <script type="text/javascript" src="/dist/dashboard.entry.chunk.js"></script>
+{% endblock %}
