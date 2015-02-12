@@ -5,8 +5,10 @@ Vagrant.configure("2") do |config|
   config.vm.box = "team-spirit-f21"
   config.vm.box_url = "build/virtualbox/vagrant/team-spirit-f21-x86_64.box"
 
-  config.vm.network "forwarded_port", guest: 80, host:9980
-  config.vm.network "forwarded_port", guest: 5432, host:9932
+  config.vm.network "forwarded_port", guest: 80, host:9901 # nginx 
+  config.vm.network "forwarded_port", guest: 5432, host:9902 # postgresql
+  config.vm.network "forwarded_port", guest: 6379, host:9903 # redis
+  config.vm.network "forwarded_port", guest: 9200, host:9904 # elasticsearch
   
   config.vm.synced_folder "salt/roots/salt", "/srv/salt"
   config.vm.synced_folder "salt/roots/pillar", "/srv/pillar"
@@ -16,14 +18,14 @@ Vagrant.configure("2") do |config|
   	v.gui = true
   end
   
-  config.vm.provision :salt do |salt|    
-    salt.always_install = false
-    salt.colorize = true
-    salt.install_args = "v2015.2"
-    salt.install_type = "git"    
-    salt.log_level = "info"
-    salt.minion_config = "salt/minion"
-    salt.run_highstate = true
-    salt.verbose = true
-  end
+  # config.vm.provision :salt do |salt|    
+  #   salt.always_install = false
+  #   salt.colorize = true
+  #   salt.install_args = "v2015.2"
+  #   salt.install_type = "git"    
+  #   salt.log_level = "info"
+  #   salt.minion_config = "salt/minion"
+  #   salt.run_highstate = true
+  #   salt.verbose = true
+  # end
 end
