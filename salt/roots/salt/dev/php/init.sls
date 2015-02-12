@@ -14,7 +14,7 @@ php-fpm:
       - php-pecl-xdebug
       - php-pecl-zip
   service.running:
-    - enable: True
+    - enable: true
     - watch:
       - pkg: php-fpm
       - file: /etc/php.ini
