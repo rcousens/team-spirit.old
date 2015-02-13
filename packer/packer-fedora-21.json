@@ -46,10 +46,10 @@
   ],
   "provisioners": [
     {
-    "type": "salt-masterless",
-    "local_pillar_roots": "../salt/roots/pillar",
-    "local_state_tree": "../salt/roots/salt",
-    "minion_config": "../salt/minion"
+      "type": "salt-masterless",
+      "local_pillar_roots": "../salt/roots/pillar",
+      "local_state_tree": "../salt/roots/salt",
+      "minion_config": "../salt/minion"
     },
     {
       "environment_vars": [
