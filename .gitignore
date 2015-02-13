@@ -3,3 +3,4 @@
 /packer/packer_cache/
 /.vagrant/
 /*.iml
+.idea

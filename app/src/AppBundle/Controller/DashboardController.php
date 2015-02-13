@@ -23,3 +23,4 @@ class DashboardController extends Controller
         return $this->render('dashboard/index.html.twig', ['embed' => ['username' => $username]]);
     }
 }
+

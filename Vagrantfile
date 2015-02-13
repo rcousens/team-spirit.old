@@ -10,9 +10,11 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 6379, host:9903 # redis
   config.vm.network "forwarded_port", guest: 9200, host:9904 # elasticsearch
   
+  config.vm.network "private_network", type: "dhcp"
+
   config.vm.synced_folder "salt/roots/salt", "/srv/salt"
   config.vm.synced_folder "salt/roots/pillar", "/srv/pillar"
-  config.vm.synced_folder "app", "/srv/www/ts.dev", type: "rsync", rsync__args: ["--verbose", "--archive", "--delete", "-z", "--copy-links", "-F"]
+  #config.vm.synced_folder "app", "/srv/www/ts.dev", type: "rsync", rsync__args: ["--verbose", "--archive", "--delete", "-z", "--copy-links", "-F"]
 
   config.vm.provider "virtualbox" do |v|
   	v.gui = true

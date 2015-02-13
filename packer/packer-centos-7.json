@@ -2,18 +2,18 @@
   "builders": [
     {
       "boot_command": [
-        "<tab> linux ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/ks.cfg<enter><wait>"
+        "<tab> linux ks=http://{{ .HTTPIP }}:{{ .HTTPPort }}/centos-7/ks.cfg<enter><wait>"
       ],
       "boot_wait": "10s",
       "disk_size": 40960,
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
-      "guest_os_type": "Fedora_64",
+      "guest_os_type": "RedHat_64",
       "headless": "false",
       "http_directory": "http",
-      "iso_checksum": "a6a2e83bb409d6b8ee3072ad07faac0a54d79c9ecbe3a40af91b773e2d843d8e",
+      "iso_checksum": "e1338d13178f1c66c17386b7ced0b1459c677ff9a1cf095ac4db377234cc03fa",
       "iso_checksum_type": "sha256",
-      "iso_url": "iso/Fedora-Server-DVD-x86_64-21.iso",
-      "output_directory": "team-spirit-f21-x86_64-virtualbox",
+      "iso_url": "iso/CentOS-7-x86_64-Minimal-20141129_02.iso",
+      "output_directory": "team-spirit-c7-x86_64-virtualbox",
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
       "ssh_password": "vagrant",
       "ssh_port": 22,
@@ -35,22 +35,22 @@
         ]
       ],
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "team-spirit-f21-x86_64"
+      "vm_name": "team-spirit-c7-x86_64"
     }
   ],
   "post-processors": [
     {
-      "output": "../build/{{.Provider}}/vagrant/team-spirit-f21-x86_64.box",
+      "output": "../build/{{.Provider}}/vagrant/team-spirit-c7-x86_64.box",
       "type": "vagrant"
     }
   ],
   "provisioners": [
-    {
-    "type": "salt-masterless",
-    "local_pillar_roots": "../salt/roots/pillar",
-    "local_state_tree": "../salt/roots/salt",
-    "minion_config": "../salt/minion"
-    },
+    // {
+    // "type": "salt-masterless",
+    // "local_pillar_roots": "../salt/roots/pillar",
+    // "local_state_tree": "../salt/roots/salt",
+    // "minion_config": "../salt/minion"
+    // },
     {
       "environment_vars": [
       ],
