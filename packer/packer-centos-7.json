@@ -10,9 +10,9 @@
       "guest_os_type": "RedHat_64",
       "headless": "false",
       "http_directory": "http",
-      "iso_checksum": "e1338d13178f1c66c17386b7ced0b1459c677ff9a1cf095ac4db377234cc03fa",
+      "iso_checksum": "ee505335bcd4943ffc7e6e6e55e5aaa8da09710b6ceecda82a5619342f1d24d9",
       "iso_checksum_type": "sha256",
-      "iso_url": "iso/CentOS-7-x86_64-Minimal-20141129_02.iso",
+      "iso_url": "iso/CentOS-7.0-1406-x86_64-DVD.iso",
       "output_directory": "team-spirit-c7-x86_64-virtualbox",
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
       "ssh_password": "vagrant",
@@ -48,7 +48,7 @@
     {
       "type": "salt-masterless",
       "local_pillar_roots": "../salt/roots/pillar",
-      "local_state_tree": "../salt/roots/salt",
+      "local_state_tree": "../salt/roots/salt-centos-7",
       "minion_config": "../salt/minion"
     },
     {
