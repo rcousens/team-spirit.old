@@ -84,3 +84,22 @@ jms_serializer:
             FOSUserBundle:
                 namespace_prefix: "FOS\\UserBundle"
                 path: "@UserBundle/Resources/config/serializer"
+
+snc_redis:
+    clients:
+        default:
+            type: phpredis
+            alias: default
+            dsn: redis://localhost
+        cache:
+            type: phpredis
+            alias: cache
+            dsn: redis://localhost/1
+        session:
+            type: phpredis
+            alias: session
+            dsn: redis://localhost/2
+    session:
+        client: session
+        prefix: sess
+        use_as_default: true

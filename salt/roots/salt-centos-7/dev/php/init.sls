@@ -43,3 +43,10 @@ xdebug-ini:
     - template: jinja
     - require:
       - pkg: php-fpm
+
+/var/lib/php/session:
+  file:
+    - directory
+    - user: apache
+    - group: apache
+    - makedirs: true

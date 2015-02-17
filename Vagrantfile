@@ -6,9 +6,6 @@ Vagrant.configure("2") do |config|
   config.vm.box_url = "build/virtualbox/vagrant/team-spirit-c7-x86_64.box"
   #config.vm.box_url = "build/virtualbox/vagrant/team-spirit-f21-x86_64.box"
 
-  config.winnfsd.uid = 1000
-  config.winnfsd.gid = 1000
-
   config.vm.provider "virtualbox" do |v|
     v.gui = true
   end
@@ -24,7 +21,6 @@ Vagrant.configure("2") do |config|
   #config.vm.synced_folder "salt/roots/salt-fedora-21", "/srv/salt"
   config.vm.synced_folder "salt/roots/pillar", "/srv/pillar"
   config.vm.synced_folder "app", "/srv/www/ts.dev", type: "nfs"  
-  #config.vm.synced_folder "app", "/srv/www/ts.dev", type: "rsync", rsync__args: ["--verbose", "--archive", "--delete", "-z", "--copy-links", "-F"]
   
   config.vm.provision :salt do |salt|    
     salt.always_install = false
