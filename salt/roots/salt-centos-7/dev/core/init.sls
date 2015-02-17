@@ -19,7 +19,7 @@ vagrant-sudoers:
 
 set-permissions:
   cmd.run:
-    - name: 'SETFACL=`which setfacl`; $SETFACL -R -m u:apache:rwX -m u:vagrant:rwX /srv/www; $SETFACL -dR -m u:apache:rwX -m u:vagrant:rwX /srv/www'
+    - name: 'SETFACL=`which setfacl`; $SETFACL -R -m u:apache:rwX -m u:vagrant:rwX /srv/www /srv/tmp; $SETFACL -dR -m u:apache:rwX -m u:vagrant:rwX /srv/www /srv/tmp'
     - order: last
 
 app-composer-install:

@@ -4,3 +4,5 @@
 /.vagrant/
 /*.iml
 .idea
+npm-debug.log
+

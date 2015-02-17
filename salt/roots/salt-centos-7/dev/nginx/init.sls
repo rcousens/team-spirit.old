@@ -9,6 +9,13 @@ nginx:
       - file: /etc/nginx/conf.d/ts.dev.conf
       - pkg: nginx
 
+/srv/tmp:
+  file:
+    - directory
+    - user: vagrant
+    - group: vagrant
+    - makedirs: true
+
 /srv/www/ts.dev:
   file:
     - directory
