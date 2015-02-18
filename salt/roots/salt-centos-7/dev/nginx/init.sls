@@ -9,7 +9,7 @@ nginx:
       - file: /etc/nginx/conf.d/ts.dev.conf
       - pkg: nginx
 
-/srv/tmp:
+/var/log/ts.dev:
   file:
     - directory
     - user: vagrant
