@@ -14,9 +14,7 @@ var Reflux = require('reflux');
 
 var DashboardStore = require('./dashboard-store.js');
 
-var TopNavBar = require('../../template/component/top-nav-bar/TopNavBar.react.js').TopNavBar;
 var Content = require('../../template/component/content/Content.react.js').Content;
-var Footer = require('../../template/component/footer/Footer.react.js').Footer;
 var ViewProfileModal = require('../../template/component/modal/ViewProfileModal.react.js').ViewProfileModal;
 var DashboardScreen = require('./component/dashboard-screen/DashboardScreen.react.js').DashboardScreen;
 var DashboardActions = require('./dashboard-actions.js');
@@ -27,10 +25,7 @@ var App = React.createClass({
         var name = this.getRoutes().reverse()[0].name;
         return (
             <div className="wrapper">
-                <TopNavBar actions={DashboardActions} active={'dashboard'} username={this.state.data.username} />
                 <RouteHandler key={name} data={this.state.data} />
-                <Footer />
-                <ViewProfileModal user={this.state.data.user} visible={this.state.data.modal.viewProfileModalVisible} actions={DashboardActions} />
             </div>
         );
     }

@@ -5,6 +5,7 @@ install-postgresql-python:
 install-postgresql:
   pkg.installed:
     - name: postgresql-server
+    - name: postgresql-contrib
 
 postgresql-initdb:
   cmd.run:

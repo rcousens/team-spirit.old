@@ -35,7 +35,7 @@ class SecurityController extends BaseController
             ? $this->get('form.csrf_provider')->generateCsrfToken('registration')
             : null;
 
-        return $this->render('FOSUserBundle:Security:login.html.twig', ['embed' => $data]);
+        return $this->render('login/login.html.twig', ['embed' => $data]);
     }
 
     /**
@@ -45,5 +45,4 @@ class SecurityController extends BaseController
     {
         throw new \RuntimeException('You must configure the check path to be handled by the firewall using form_login in your security firewall configuration.');
     }
-
 }

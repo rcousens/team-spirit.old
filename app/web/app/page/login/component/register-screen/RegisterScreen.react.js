@@ -107,7 +107,7 @@ var RegisterScreen = React.createClass({
                         <label className="control-label">Complexity {this.state.complexity > 0 ? '(' + this.state.complexity + '/100)' : ''}</label>
                         <div className="progress">
                             <div className={'progress-bar progress-bar-' + progressBarType} role="progressbar" aria-valuenow={this.state.complexity} aria-valuemin="0" aria-valuemax="100" style={complexitystyle}>
-                                <span class="sr-only">{this.state.complexity}%</span>
+                                <span className="sr-only">{this.state.complexity}%</span>
                             </div>
                         </div>
 

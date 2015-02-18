@@ -21,6 +21,9 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
             new FOS\RestBundle\FOSRestBundle(),
+            new PersistenceBundle\PersistenceBundle(),
+            new CacheBundle\CacheBundle(),
+            new PermissionBundle\PermissionBundle(),
             new AppBundle\AppBundle(),
             new ApiBundle\ApiBundle(),
             new UserBundle\UserBundle(),
@@ -41,13 +44,8 @@ class AppKernel extends Kernel
         $loader->load(__DIR__.'/config/config_'.$this->getEnvironment().'.yml');
     }
 
-    public function getCacheDir()
-    {
-        return '/srv/tmp/cache/'.$this->getEnvironment();
-    }
-
     public function getLogDir()
     {
-        return '/srv/tmp/logs';
+        return '/var/log/ts.dev';
     }
 }

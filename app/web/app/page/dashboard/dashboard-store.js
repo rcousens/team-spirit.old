@@ -2,7 +2,6 @@ var Reflux = require('reflux');
 var DashboardActions = require('./dashboard-actions.js');
 
 var data = {
-    username: window.TS.embed.username,
     modal: {
         viewProfileModalVisible: false
     },

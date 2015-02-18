@@ -3,7 +3,7 @@ var LoginActions = require('./login-actions.js');
 
 var data = {
     message: '',
-    email: window.TS.embed.last_username ? window.TS.embed.last_username : '',
+    email: window.TS.embed ? window.TS.embed.last_username : '',
     errors: {}
 };
 

@@ -8,6 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     {#<link rel="icon" href="/favicon.ico">#}
+    <base href="{{ app.request.requestUri }}">
     {% block stylesheets %}{% endblock %}
     <title>{% block title %}{% endblock %}</title>
     {% if embed is defined %}
@@ -19,12 +20,13 @@
     {% endif %}
 </head>
 
-<body id="app">
-{% block body %}
-{% endblock %}
-
+<body>
+{% block nav %}{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}
 <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
 <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
 {% block javascripts %}{% endblock %}
 </body>
+
 </html>

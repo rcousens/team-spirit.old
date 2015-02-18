@@ -5,7 +5,6 @@ module.exports = {
     debug: true,
     devtool: "eval",
     entry: {
-        //test: "./web/app/entry.js",
         login: "./web/app/page/login/login.js",
         dashboard: "./web/app/page/dashboard/dashboard.js"
     },
