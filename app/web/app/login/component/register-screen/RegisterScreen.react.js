@@ -11,10 +11,6 @@ var complexitystyle = {
     width: '0%'
 };
 
-setInterval(function() {
-    console.log(complexitystyle);
-}, 500);
-
 var RegisterScreen = React.createClass({
     mixins: [Navigation],
     getInitialState: function() {
@@ -31,7 +27,6 @@ var RegisterScreen = React.createClass({
         LoginActions.emailChange(e.target.value);
     },
     componentDidMount: function() {
-        var component = this;
         $(this.refs.password.getDOMNode()).complexify({strengthScaleFactor: 0.5}, function(valid, complexity) {
             complexitystyle.width = parseInt(complexity).toString() + '%';
         });
@@ -46,6 +41,7 @@ var RegisterScreen = React.createClass({
     },
     doRegister: function() {
         var component = this;
+        $(this.refs.registerButton.getDOMNode()).button('loading');
         superagent
             .post(window.Routing.generate('user_bundle_register'))
             .type('form')
@@ -55,6 +51,7 @@ var RegisterScreen = React.createClass({
             .send('fos_user_registration_form[plainPassword][first]=' + this.state.password)
             .send('fos_user_registration_form[plainPassword][second]=' + this.state.password_confirm)
             .end(function(err, res) {
+                $(component.refs.registerButton.getDOMNode()).button('reset');
                 if (res.body.errors) {
                     LoginActions.registrationFailed(res.body.errors);
                 } else if (res.body.registration) {
@@ -118,7 +115,7 @@ var RegisterScreen = React.createClass({
                         </div>
 
                         <br />
-                        <button type="button" disabled={!equalPassword} onClick={this.doRegister} className="btn btn-success">Register <i className="fa fa-fw fa-check"></i></button>
+                        <button type="button" ref="registerButton" data-loading-text="Registering <i class='fa fa-spinner fa-spin'></i>" disabled={!equalPassword} onClick={this.doRegister} className="btn btn-success">Register <i className="fa fa-fw fa-check"></i></button>
                         {message}
                     </form>
                 </div>

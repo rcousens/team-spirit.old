@@ -2,6 +2,7 @@ var Reflux = require('reflux');
 var ProfileActions = require('../action/profile-actions.js');
 var superagent = require('superagent');
 
+
 var ProfileStore = Reflux.createStore({
     listenables: [ProfileActions],
     onLoadUserProfile: function() {
