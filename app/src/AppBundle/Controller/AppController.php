@@ -9,11 +9,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class AppController extends Controller
 {
     /**
-     * @Route("/dashboard", name="dashboard", methods={"GET"}, options={"expose"=true})
+     * @Route("/app", name="app", methods={"GET"}, options={"expose"=true})
      */
     public function indexAction()
     {
-        return $this->render('dashboard/dashboard.html.twig');
+        return $this->render('app/app.html.twig');
     }
 }
 

@@ -26,7 +26,6 @@ class ProfileController extends FOSRestController
             ->setSerializationContext(SerializationContext::create()->setGroups(['private']))
             ->setFormat('json');
 
-        sleep(6);
         return $this->handleView($view);
     }
 }

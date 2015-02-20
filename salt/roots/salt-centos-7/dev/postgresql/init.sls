@@ -3,9 +3,10 @@ install-postgresql-python:
     - name: python-psycopg2
 
 install-postgresql:
-  pkg.installed:
-    - name: postgresql-server
-    - name: postgresql-contrib
+  pkg.latest:
+    - names: 
+      - postgresql-server
+      - postgresql-contrib
 
 postgresql-initdb:
   cmd.run:

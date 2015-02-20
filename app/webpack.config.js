@@ -5,8 +5,8 @@ module.exports = {
     debug: true,
     devtool: "eval",
     entry: {
-        login: "./web/app/page/login/login.js",
-        dashboard: "./web/app/page/dashboard/dashboard.js"
+        login: "./web/app/login/login.js",
+        app: "./web/app/js/app.js"
     },
     output: {
         path: __dirname + "/web/dist/",

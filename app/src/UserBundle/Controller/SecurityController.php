@@ -12,7 +12,7 @@ class SecurityController extends BaseController
 {
     public function loginAction(Request $request)
     {
-        if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_REMEMBERED'))
+        if ($this->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY'))
         {
             // redirect authenticated users to homepage
             return $this->redirect($this->generateUrl('home'));
